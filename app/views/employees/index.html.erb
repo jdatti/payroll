@@ -1,0 +1,29 @@
+<h1>Listing employees</h1>
+<%= form_tag  employees_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: 'Please enter the data to search' %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>  
+<% end %>
+
+<div id="employees"><%= render 'index' %></div>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js">
+</script>
+<script type="text/javascript">
+  $("#search").autocomplete(
+    { minLength: 2 ,    
+     source: function( request, response ) {
+       $.ajax({
+         url: "<%= employees_path %>",
+         dataType: "jsonp",
+         data: {            
+           search: request.term
+         },
+         success: function( data ) {
+            response( data );
+          }
+       });
+     }
+});
+
+</script>

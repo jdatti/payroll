@@ -1,0 +1,90 @@
+body {
+  background-color: #fff;
+  color: #8D906C;
+  font-family: 'Times New Roman' , Times, serif;
+  margin: 20px 0px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.simple_form label {
+  float: center;
+  width: 300px;
+  text-align: center;
+  
+}
+
+table{
+   
+   outline-style: solid;
+   outline-width: 0.5px;
+   width: 100%;
+   height: 100;
+   border-collapse: collapse;
+   
+}
+
+.modal {
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 20px;
+  }
+}
+
+#notice {
+  color: pink;
+}
+
+.simple_form div.boolean, .simple_form input[type='submit'] {
+  margin-left: 150px;
+}
+/*table colours */
+.thead     { background: #aabcfe; color: #c67baa; border-color: #ac45bf; }
+.tdata    { background: #e6efc2; color: #264409; border-color: #34bbcc; }
+
+header {
+  margin-bottom: 20px;
+  padding: 0.5px 0px;
+  background: #bbeecc;
+  position: relative;
+}
+
+footer {
+  margin-top: 20px;
+  padding: 0.5px 0;
+  background: #bbccdd;
+  position: relative;
+}
+
+.notice {
+  background-color: #cddccc ;
+  border-color: #d6e9c6 ;
+  color: #468847 ;
+}
+
+
+.modal {
+  max-height: calc(200vh - 220px);
+  overflow-y: auto;
+}
+
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ 
+ *= require_self
+ */

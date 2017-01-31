@@ -1,0 +1,141 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea   ;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+     }
+}
+
+
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: "aabbcc";
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* Navigation */
+
+nav {
+  float: right;
+  background: black;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: list-item;
+  padding: 0.2em 0;
+}
+
+nav ul li a {
+  padding: 0 5px;
+  font-weight: italic;
+}
+
+nav ul li a:visited {
+  color: black;
+}
+
+/*table scorlling*/
+.span3 {  
+  height: 100% !important;
+  width: 100% !important;
+  overflow: scroll;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: "acbcad";
+  a {
+    color: $gray;
+    &:hover { 
+    color: "acbadd";
+    }
+  }
+
+small { 
+  float: left; 
+}
+
+ul {
+  float: right;
+  list-style: none;
+  li {
+    float: left;
+    margin-left: 10px;
+     }
+  }
+}
+
+.ui-datepicker 
+{
+  background: #333;
+  border: 1px solid #555;
+  color: #EEE;   
+}
+
+.validation-error
+{
+  color: red;
+}
+
+.modal {
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}

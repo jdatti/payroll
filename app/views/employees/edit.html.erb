@@ -1,0 +1,21 @@
+<h1>Editing employee</h1>
+<%= simple_form_for(@employee) do |f| %>
+  <%= f.input :emp_id %>
+  <%= f.input :salutation, :collection => ["Mr.","Ms.","Mrs."], :prompt => "Select" %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%=  f.input :is_admin, :as => :hidden, :input_html => { value: @employee.is_admin } %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :designation, :collection => ["Manager","Senior_Developer","Junior_Developer","QA","HR"] %>
+  <%= f.input :cell_no %>
+  <%= f.input :pan_no %>
+  <%= f.input :UAN_no %>
+  <%= f.input :PF_Acc_no %>
+  <%= f.input :Bank_Name %>
+  <%= f.input :Bank_account %>
+  <%= f.input :Gross_CTC %>
+  <%= f.input :Dateofjoining %>
+  <%= f.submit   %>
+ 
+<% end %>

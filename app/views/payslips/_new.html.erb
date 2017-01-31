@@ -1,0 +1,123 @@
+<%= simple_form_for(@payslip,:url => { :action => "create" }, :method => :post) do |f| %>
+
+  <div class="field">
+    <%= f.input :gross_CTC%>
+  </div>
+
+  <div class="field">
+    <%= f.input :basic%>
+  </div>
+
+  <div class = "feild">
+    <%= f.input :emp_id, :as => :hidden, :input_html => { :value => @emp_id } %>
+  </div>
+
+  <div class = "feild">
+    <%= f.input :employee_id, :as => :hidden, :input_html => { :value => @emp  } %>
+  </div>
+
+  <div class="field">
+    <%= f.input :HRA %>
+  </div>
+
+  <div class="field">
+    <%= f.input :medical,  :input_html => { :value => 1250 } %>
+  </div>
+
+  <div class="field">
+    <%= f.input :conveyance,  :input_html => { :value => 1600 }%>
+  </div>
+
+  <div class="field">
+    <%= f.input :PF %>
+  </div>
+
+  <div class="field">
+    <%= f.input :special_allowance %>
+  </div>
+
+  <div class="field">
+    <%= f.input :arrears%>
+  </div>
+
+  <div class="field">
+    <%= f.input :total_earnings %>
+  </div>
+
+  <div class="field">
+    <%= f.input :Prof_Tax%>
+  </div>
+
+  <div class="field">
+    <%= f.input :Total_PF_deductions%>
+  </div>
+
+  <div class="field">
+    <%= f.input :Income_Tax %>
+  </div>
+
+  <div class="field">
+    <%= f.input :vac_sick_overdue%>
+  </div>
+
+  <div class="field">
+    <%= f.input :total_deductions %>
+  </div>
+
+  <div class="field">
+    <%= f.input :net_pay %>
+  </div>
+
+  <div class="field">
+    <%= f.input :vacation %>
+  </div>
+
+  <div class="field">
+    <%= f.input :sick %>
+  </div>
+   
+  <div class="field">
+    <%= f.input :Days_Paid %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :submit  %>
+  </div>
+
+<% end %>
+
+<script type="text/javascript">
+
+
+  $( document ).ready(function() {
+    $("#payslip_gross_CTC, #payslip_PF, #payslip_arrears,#payslip_medical, #payslip_conveyance, #payslip_Prof_Tax, #payslip_Total_PF_deductions, #payslip_Income_Tax, #payslip_vac_sick_overdue").blur(
+        function()
+        {
+          var gross = $("#payslip_gross_CTC").val();
+          var gross_ctc = Math.round(gross/12);
+          var basic = ((gross_ctc*55)/100);
+          var hra = (basic*30)/100;
+          $("#payslip_basic").val(Math.round(basic));
+          $("#payslip_HRA").val(Math.round(hra));
+          var medical = Math.round($("#payslip_medical").val());
+          var conveyance = Math.round($("#payslip_conveyance").val());
+          var pf = Math.round($("#payslip_PF").val());
+          var special_allowance = (gross_ctc)-(basic+hra+medical+conveyance+pf);
+          $("#payslip_special_allowance").val(Math.round(special_allowance));
+          var arrears = Math.round($("#payslip_arrears").val());
+          var total_earnings = (basic+hra+medical+conveyance+pf+special_allowance+arrears);
+          $("#payslip_total_earnings").val(Math.round(total_earnings));
+          var prof_tax = Math.round($("#payslip_Prof_Tax").val());
+          var total_pf_deductions = Math.round($("#payslip_Total_PF_deductions").val());
+          var income_tax = Math.round($("#payslip_Income_Tax").val());
+          var vacation_sick_overdue = Math.round($("#payslip_vac_sick_overdue").val());
+          var total_deductions = Math.round((prof_tax+total_pf_deductions+income_tax+vacation_sick_overdue));
+          $("#payslip_total_deductions").val(total_deductions);
+          var net_pay = total_earnings-total_deductions;  
+          $("#payslip_net_pay").val(Math.round(net_pay));
+    
+        });
+  });
+
+
+</script>

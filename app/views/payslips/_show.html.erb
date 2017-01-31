@@ -1,0 +1,199 @@
+<%= stylesheet_link_tag "payslips" %>
+
+<address style="text-align:center">
+
+  <p>
+    <b><h4>Icentris Software Development Pvt Ltd</h4></b>
+  </p>
+
+  <p>Plot no:100,sector-1<br/>
+     M.V.P.Double Road,M.V.P.Colony<br/>
+     Visakhapatnam – 530017<br/>
+  </p>
+
+</address>
+
+<hr style="border: solid 1px"/>
+<p align="center">
+  <b> Payslip for the period of <% @date = Date.today.ago(1.month)  %><%= @date.strftime("%B - %Y")%> </b>
+</p>
+
+<strong>
+  <h3><%= @payslip.employee.full_name %></h3>
+</strong>
+
+<div id="A" >
+  <div id="B" >
+    <div class="rTable">
+
+      <div class="rTableHead"><strong>Employee Details</strong></div>
+      <div class="rTableHead"></div> 
+
+      <div class="rTableRow"> 
+        <div class="rTableCell">Employee Id</div>
+        <div class="rTableCell"><%= @payslip.employee.emp_id %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Date of Joining</div>
+        <div class="rTableCell"><%= @payslip.employee.Dateofjoining %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Designation</div>
+        <div class="rTableCell"><%= @payslip.employee.designation %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">PanCard No</div>
+        <div class="rTableCell"><%= @payslip.employee.pan_no %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">UAN No</div>
+        <div class="rTableCell"><%= @payslip.employee.UAN_no %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">PF Acc No</div>
+        <div class="rTableCell"><%= @payslip.employee.PF_Acc_no %></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="C" >
+    <div class="rTable">
+
+      <div class="rTableHead"><strong>Payment and Leave Details</strong></div>
+      <div class="rTableHead"></div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Bank_Name</div>
+        <div class="rTableCell"><%= @payslip.employee.Bank_Name %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Bank Account No</div>
+        <div class="rTableCell"><%= @payslip.employee.Bank_account %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Days Paid</div>
+        <div class="rTableCell"><%= @payslip.Days_Paid %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Leaves</div>
+        <div class="rTableCell"><b> Sick:</b> <%= @payslip.sick %> <b>Vacation:</b><%= @payslip.vacation %></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+      
+<div id="D"><h4><% @date = Date.today.ago(1.month) %><%= @date.strftime("%B - %Y")%></h4>
+</div>
+
+
+
+ 
+<div id="E" >
+  <div id="F" >
+    <div class="rTable">
+      <div class="rTableRow">
+        <div class="rTableHead1"><strong>Earnings</strong></div>
+        <div class="rTableHead1"><strong>Amount(INR)</strong></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Basic Pay</div>
+        <div class="rTableCell"><%= @payslip.basic %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Medical Allowance</div>
+        <div class="rTableCell"><%= @payslip.medical %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">House Rent Allowance</div>
+        <div class="rTableCell"><%= @payslip.HRA %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Conveyance Allowance</div>
+        <div class="rTableCell"><%= @payslip.conveyance %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Special Allowance</div>
+        <div class="rTableCell"><%= @payslip.special_allowance %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">PF(Employer's Contribution)</div>
+        <div class="rTableCell"><%= @payslip.PF %></div>
+      </div>
+      
+      <div class="rTableRow">
+        <div class="rTableCell2">Total Earnings</div>
+        <div class="rTableCell3"><%= @payslip.total_earnings %></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="G" >
+    <div class="rTable">
+      <div class="rTableRow">
+        <div class="rTableHead1"><strong>Deductions</strong></div>
+        <div class="rTableHead1"><strong>Amount(INR)</strong></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">TDS</div>
+        <div class="rTableCell"><%= @payslip.Income_Tax %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Professional Tax</div>
+        <div class="rTableCell"><%= @payslip.Prof_Tax %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Total PF Deductions</div>
+        <div class="rTableCell"><%= @payslip.Total_PF_deductions %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell">Vac/Sick Overdue</div>
+        <div class="rTableCell"><%= @payslip.vac_sick_overdue %></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell"></div>
+        <div class="rTableCell"></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell"></div>
+        <div class="rTableCell"></div>
+      </div>
+
+      <div class="rTableRow">
+        <div class="rTableCell2">Total Deductions</div>
+        <div class="rTableCell3"><%= @payslip.total_deductions %></div>
+      </div>
+
+      <div class="rTableRow" >
+        <div class="rTableCell1">NET PAY(INR)</div>
+        <div class="rTableCell3"><%= @payslip.net_pay %></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    
